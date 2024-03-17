@@ -1,0 +1,27 @@
+<html><head></head><body><h1 id="test-source-code-blocks-acb6">Test source code blocks</h1><p>This file tests source code blocks.</p><div class="default"><div class="title">Source code</div><div class="content"><div class="highlight"><pre><span></span>This is all literal.
+
+== This is not a header
+
+[These are not attributes]
+
+Some quotes &quot;&quot;
+</div></div><hr><div class="default"><div class="title">Python code</div><div class="content"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">header_anchor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a sanitised anchor for a header.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Everything lowercase</span>
+    <span class="n">sanitised_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="c1"># Get only letters, numbers, dashes, spaces, and dots</span>
+    <span class="n">sanitised_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;[a-z0-9-</span><span class="se">\\</span><span class="s2">. ]+&quot;</span><span class="p">,</span> <span class="n">sanitised_text</span><span class="p">))</span>
+
+    <span class="c1"># Remove multiple spaces</span>
+    <span class="n">sanitised_text</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sanitised_text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">sanitised_text</span>
+</div></div><hr><div class="default"><div class="content"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">header_anchor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span> <span class="callout">1</span>
+    <span class="k">return</span> <span class="s2">&quot;h</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">quote</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())[:</span><span class="mi">20</span><span class="p">],</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">text</span><span class="p">))[:</span><span class="mi">8</span><span class="p">]</span> <span class="callout">2</span>
+    <span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+</div><div class="callouts"><table><tbody><tr><td><span class="callout">1</span></td><td>The name of the function</td></tr><tr><td><span class="callout">2</span></td><td>Some memory-related wizardry</td></tr></tbody></table></div></div></body></html>
